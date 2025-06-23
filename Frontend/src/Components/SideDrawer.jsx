@@ -122,7 +122,7 @@ return (
       </Tooltip>
       <Text fontSize={"2xl"}
       fontFamily={"cursive"}>
-        Chat-Room
+        Talk-A-Tive
       </Text>
       <Box display={"flex"} alignItems={"center"} gap={"10px"}>
       <Menu>
