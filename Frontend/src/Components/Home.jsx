@@ -29,7 +29,7 @@ function Home() {
           boxShadow="lg"
         >
           <Text fontSize="2xl" fontWeight="bold">
-            Talk-A-Tive
+            Chat-Room
           </Text>
         </Box>
         <Box 
