@@ -220,7 +220,7 @@ function UpdateGroupChatModal({fetchAgain,setFetchAgain,fetchMessages}) {
                   onChange={(e)=> setGroupChatName(e.target.value)}/>
                   <Button 
                   variant={"solid"}
-                  colorScheme='teal'
+                  color='teal'
                   ml={1}
                   isLoading={renameLoading}
                   onClick={handleRename}>Update</Button>
@@ -247,7 +247,7 @@ function UpdateGroupChatModal({fetchAgain,setFetchAgain,fetchMessages}) {
                 )}
               </ModalBody>
               <ModalFooter>
-                <Button onClick={()=>handleRemove(user)} colorScheme='red'>
+                <Button onClick={()=>handleRemove(user)} color='red'>
                   Leave Group
                 </Button>
                 {/* <Button variant='ghost'>Secondary Action</Button> */}

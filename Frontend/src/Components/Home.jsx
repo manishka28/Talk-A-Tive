@@ -1,66 +1,77 @@
 import React, { useEffect } from 'react';
-import { Box, Container, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react';
+import logo from '../assets/images/logo.png'; 
+
+import {
+  Box,
+  Container,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+} from '@chakra-ui/react';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const navigate=useNavigate();
-  useEffect(()=>{
-    const user=JSON.parse(localStorage.getItem("userInfo"));
-    if(!user){
-      navigate('/');
+  const navigate = useNavigate();
 
-    }
-  },[navigate]);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('userInfo'));
+    if (user) navigate('/chats');
+  }, [navigate]);
+
   return (
-    <div className='h-screen bg-[url("https://img.freepik.com/premium-vector/hand-drawn-comic-book-speech-bubble-speak-calling-callout-seamless-pattern-background_8580-927.jpg?semt=ais_hybrid")] bg-cover bg-center bg-repeat-y'>
-      <Container maxW="xl" centerContent>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          p={3}
-          bg="#FFFDD0"
-          w="100%"
-          m="40px 0 15px 0"
-          borderRadius="lg"
-          borderWidth="1px"
-          boxShadow="lg"
-        >
-          <Text fontSize="2xl" fontWeight="bold">
-            Talk-A-Tive
-          </Text>
-        </Box>
-        <Box 
-        bg="#FFFDD0"
-        w="100%"
-        p={4}
-        borderRadius="lg"
-        borderWidth="1px"
-        color="black"
-        >
-        
-          <Tabs 
-          variant='soft-rounded' colorScheme='green'>
-  <TabList mb="1em">
-    <Tab width="50%">Log In</Tab>
-    <Tab width="50%">Sign Up</Tab>
-  </TabList>
-  <TabPanels>
-    <TabPanel>
-      <LogIn/>
-   </TabPanel>
-    <TabPanel>
-      <SignUp/>
-    </TabPanel>
-  </TabPanels>
-</Tabs>
-        
-          
-        </Box>
+    <Box
+      minH="100vh"
+      bgImage="url('https://static.vecteezy.com/system/resources/previews/009/362/398/non_2x/blue-dynamic-shape-abstract-background-suitable-for-web-and-mobile-app-backgrounds-eps-10-vector.jpg')"
+      bgSize="cover"
+      bgPosition="center"
+      bgRepeat="no-repeat"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      px={4}
+      py={6}
+    >
+      <Container
+        maxW={{ base: '95%', sm: '80%', md: '400px' }}
+        p={{ base: 4, sm: 5 }}
+        borderRadius="xl"
+        boxShadow="2xl"
+        bg="rgba(54, 54, 163, 0.6)" // matching purple tone
+        backdropFilter="blur(16px)"
+        border="1px solid rgba(255, 255, 255, 0.2)"
+        color="white"
+      >
+        <Box textAlign="center" mb={3}>
+  <img
+    src={logo}
+    alt="Talk-A-Tive Logo"
+    style={{ maxHeight: '60px', objectFit: 'contain', margin: '0 auto' }}
+  />
+</Box>
+
+
+        <Tabs variant="soft-rounded" colorScheme="purple" isFitted>
+          <TabList mb={2}>
+            <Tab fontSize="sm" color="white">Log In</Tab>
+            <Tab fontSize="sm" color="white">Sign Up</Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel px={0} py={1}>
+              <LogIn />
+            </TabPanel>
+            <TabPanel px={0} py={1}>
+              <SignUp />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Container>
-    </div>
+    </Box>
   );
 }
 

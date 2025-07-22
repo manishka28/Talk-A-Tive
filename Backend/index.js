@@ -65,16 +65,18 @@ io.on("connection",(socket)=>{
     }
     socket.join(userData._id);
     console.log("userData",userData._id);
+    // we are using user._id created by MongoDB for socket connection
     
     socket.emit("connected");
   });
 
-  
+  // using chat._id as room name
   socket.on("joinRoom",(room)=>{
     socket.join(room);
     console.log(`User ${socket.id} joined room: ${room}`);
     
   });
+  // joinRoom means user has opened current chat
 
   socket.on("sendMessage",(newMessageRecieved)=>{
     const chat =newMessageRecieved.chat;

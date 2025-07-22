@@ -1,28 +1,29 @@
-import { CloseIcon } from '@chakra-ui/icons'
-import { Box } from '@chakra-ui/react'
-import React from 'react'
+import { CloseIcon } from '@chakra-ui/icons';
+import { Box, Text } from '@chakra-ui/react';
+import React from 'react';
 
-function UserBadgeItem({user,handleFunction}) {
+function UserBadgeItem({ user, handleFunction }) {
   return (
     <Box
-    px={2}
-    py={1}
-    borderRadius={"lg"}
-    m={1}
-    mb={2}
-    variant="solid"
-    fontSize={12}
-    backgroundColor={"purple"}
-    color={"white"}
-    cursor={"pointer"}
-    onClick={handleFunction}
+      px={3}
+      py={1}
+      borderRadius="xl"
+      m={1}
+      mb={2}
+      bgGradient="linear(to-r, purple.600, purple.800)"
+      color="white"
+      fontWeight="medium"
+      fontSize="sm"
+      display="flex"
+      alignItems="center"
+      cursor="pointer"
+      onClick={handleFunction}
+      _hover={{ opacity: 0.9 }}
     >
-      {user.name}
-      <CloseIcon
-      pl={1}/>
-
+      <Text mr={2}>{user.name}</Text>
+      <CloseIcon fontSize="xs" />
     </Box>
-  )
+  );
 }
 
-export default UserBadgeItem
+export default UserBadgeItem;
